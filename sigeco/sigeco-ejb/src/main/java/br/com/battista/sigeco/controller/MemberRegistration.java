@@ -14,10 +14,11 @@ import javax.persistence.EntityManager;
 import br.com.battista.sigeco.model.Member;
 
 // The @Stateful annotation eliminates the need for manual transaction demarcation
+@SuppressWarnings("javadoc")
 @Stateful
-// The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
+// The @BaseEntity stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
-// Read more about the @Model stereotype in this FAQ:
+// Read more about the @BaseEntity stereotype in this FAQ:
 // http://sfwk.org/Documentation/WhatIsThePurposeOfTheModelAnnotation
 @Model
 public class MemberRegistration {

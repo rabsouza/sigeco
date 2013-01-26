@@ -14,16 +14,17 @@ import br.com.battista.sigeco.model.Member;
 
 /**
  * JAX-RS Example
- * 
+ *
  * This class produces a RESTful service to read the contents of the members table.
  */
 @Path("/members")
 @RequestScoped
+@SuppressWarnings("javadoc")
 public class MemberResourceRESTService {
    @Inject
    private EntityManager em;
 
-   @GET
+@GET
    @Produces("text/xml")
    public List<Member> listAllMembers() {
       // Use @SupressWarnings to force IDE to ignore warnings about "genericizing" the results of
