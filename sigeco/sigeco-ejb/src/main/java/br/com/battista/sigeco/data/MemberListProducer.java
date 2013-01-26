@@ -1,12 +1,11 @@
 package br.com.battista.sigeco.data;
 
-import br.com.battista.sigeco.model.Member;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.event.Reception;
-
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -15,6 +14,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import br.com.battista.sigeco.model.Member;
+
+@SuppressWarnings("javadoc")
 @RequestScoped
 public class MemberListProducer {
    @Inject
