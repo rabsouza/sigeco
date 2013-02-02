@@ -2,8 +2,10 @@
 */target
 */build
 */classes
+*/target/*
+*/build/*
+*/classes/*
 *Thumbs.db
-# Package Files #
 *.jar
 *.war
 *.ear
