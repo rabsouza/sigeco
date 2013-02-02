@@ -22,16 +22,24 @@
 			<artifactId>sigeco-web</artifactId>
 			<type>war</type>
 		</dependency>
+
 		<dependency>
 			<groupId>br.com.battista</groupId>
 			<artifactId>sigeco-ejb</artifactId>
 			<type>ejb</type>
 		</dependency>
+
 		<dependency>
 			<groupId>br.com.battista</groupId>
 			<artifactId>sigeco-utils</artifactId>
 			<type>jar</type>
-      </dependency>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.12</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -48,6 +56,9 @@
 						in easy way to package any libraries needed in the ear, and automatically 
 						have any modules (EJB-JARs and WARs) use them -->
 					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<applicationName>sigeco</applicationName>
+					<generateApplicationXml>false</generateApplicationXml>
+					<includeLibInApplicationXml>true</includeLibInApplicationXml>
 					<modules>
 						<!-- Register our War as a web module, and set the context root -->
 						<webModule>

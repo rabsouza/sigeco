@@ -19,6 +19,7 @@ import br.com.battista.sigeco.controller.MemberRegistration;
 import br.com.battista.sigeco.model.Member;
 import br.com.battista.sigeco.util.Resources;
 
+@SuppressWarnings("javadoc")
 @RunWith(Arquillian.class)
 public class MemberRegistrationTest {
    @Deployment
@@ -45,5 +46,5 @@ public class MemberRegistrationTest {
       assertNotNull(newMember.getId());
       log.info(newMember.getName() + " was persisted with id " + newMember.getId());
    }
-   
+
 }

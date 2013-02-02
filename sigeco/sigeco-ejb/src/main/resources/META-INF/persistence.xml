@@ -11,7 +11,16 @@
 			source, the example data source is just for proofs of concept! -->
 		<jta-data-source>java:/sigecoDS</jta-data-source>
 
-		<class>br.com.battista.sigeco.model.Member</class>
+		<class>br.com.battista.sigeco.model.BaseEntityImpl</class>
+		<class>br.com.battista.sigeco.model.Usuario</class>
+		<class>br.com.battista.sigeco.model.TipoContato</class>
+		<class>br.com.battista.sigeco.model.Contato</class>
+		<class>br.com.battista.sigeco.model.Endereco</class>
+		<class>br.com.battista.sigeco.model.Parametro</class>
+		<class>br.com.battista.sigeco.model.Perfil</class>
+		<class>br.com.battista.sigeco.model.Pessoa</class>
+		<class>br.com.battista.sigeco.model.PessoaFisica</class>
+		<class>br.com.battista.sigeco.model.PessoaJuridica</class>
 
 		<properties>
 			<!-- Properties for Hibernate -->
@@ -22,10 +31,11 @@
 				name="javax.persistence.jdbc.password" value="123456" /> -->
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.use_sql_comments" value="true" />
 			<property name="hibernate.format_sql" value="true" />
+			
 			<property name="hibernate.transaction.manager_lookup_class"
 				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
 

@@ -43,6 +43,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.0.1.Final</version>
+		</dependency>
+		
 		<!-- JSR-303 (Bean Validation) Implementation -->
 		<!-- Provides portable constraints such as @Email -->
 		<!-- Hibernate Validator is shipped in JBoss AS 7 -->
@@ -72,7 +78,17 @@
 		<dependency>
 			<groupId>br.com.battista</groupId>
 			<artifactId>sigeco-utils</artifactId>
+			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.12</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

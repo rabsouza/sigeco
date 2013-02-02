@@ -52,7 +52,6 @@
 			<groupId>br.com.battista</groupId>
 			<artifactId>sigeco-utils</artifactId>
 			<type>jar</type>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
