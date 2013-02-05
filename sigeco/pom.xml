@@ -31,6 +31,13 @@
 				<type>ejb</type>
 			</dependency>
 
+			<dependency>
+				<groupId>br.com.battista</groupId>
+				<artifactId>sigeco-utils</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>jar</type>
+			</dependency>
+
 			<!-- Define the version of the WAR so that we don't need to repeat ourselves 
 				in every module -->
 			<dependency>
@@ -86,11 +93,21 @@
 			</dependency>
 
 			<dependency>
-				<groupId>br.com.battista</groupId>
-				<artifactId>sigeco-utils</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-all</artifactId>
+				<version>1.3</version>
 				<type>jar</type>
+				<scope>test</scope>
 			</dependency>
+
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>1.9.5</version>
+				<type>jar</type>
+				<scope>test</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

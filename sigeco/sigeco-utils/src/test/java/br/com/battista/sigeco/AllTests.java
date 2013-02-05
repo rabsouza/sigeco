@@ -17,5 +17,5 @@ import br.com.battista.sigeco.utils.UtilCryptionTest;
 		LoggerUtilTest.class, PackageLogTest.class, PropertiesTest.class,
 		UtilCryptionTest.class })
 public class AllTests {
-
+	
 }

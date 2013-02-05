@@ -31,7 +31,7 @@ import br.com.battista.sigeco.exception.SigecoException;
  * <li>SEXO</li>
  * <li>ESTADO_CIVIL</li>
  * </ul>
- *
+ * 
  * @author Rafael
  * @version 1.0.0
  * @since 18/07/2010
@@ -43,61 +43,96 @@ import br.com.battista.sigeco.exception.SigecoException;
 @DiscriminatorValue(value = "FIS")
 @Table(name = "PESSOA_FISICA")
 public class PessoaFisica extends Pessoa {
-
+	
 	private static final long serialVersionUID = -6159044912671290432L;
-
+	
 	@NotBlank
 	@Size(min = 13, max = 13)
 	@Column(name = "CPF", length = 13, nullable = false, unique = true)
 	@Pattern(regexp = "\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d", message = "Deve está no formato: 999.999.999-99")
 	private String cpf;
-
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "DATA_NASCIMENTO", nullable = false)
 	private Date dataNascimento;
-
-	@Size(min = 1, max = 100)
-	@Column(name = "NOME_PAI", length = 100, nullable = true)
-	private String nomePai;
-
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "ESTADO_CIVIL", length = 10, nullable = true)
+	private EstadoCivilEnum estadoCivil;
+	
 	@Size(min = 1, max = 100)
 	@Column(name = "NOME_MAE", length = 100, nullable = true)
 	private String nomeMae;
-
+	
+	@Size(min = 1, max = 100)
+	@Column(name = "NOME_PAI", length = 100, nullable = true)
+	private String nomePai;
+	
 	@Enumerated(EnumType.STRING)
 	@NotNull
 	@Column(name = "SEXO", length = 10, nullable = true)
 	private SexoEnum sexo;
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "ESTADO_CIVIL", length = 10, nullable = true)
-	private EstadoCivilEnum estadoCivil;
-
+	
 	/**
 	 * Construtor para a classe PessoaFisica.
-	 *
+	 * 
 	 */
 	public PessoaFisica() {
 		super();
 	}
-
+	
 	/**
 	 * Construtor para a classe PessoaFisica.
-	 *
+	 * 
 	 * @param map
 	 * @throws SigecoException
 	 */
 	public PessoaFisica(Map<String, Object> map) throws SigecoException {
 		super(map);
 	}
-
+	
 	/**
 	 * @return cpf
 	 */
 	public String getCpf() {
 		return cpf;
 	}
-
+	
+	/**
+	 * @return dataNascimento
+	 */
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	
+	/**
+	 * @return estadoCivil
+	 */
+	public EstadoCivilEnum getEstadoCivil() {
+		return estadoCivil;
+	}
+	
+	/**
+	 * @return nomeMae
+	 */
+	public String getNomeMae() {
+		return nomeMae;
+	}
+	
+	/**
+	 * @return nomePai
+	 */
+	public String getNomePai() {
+		return nomePai;
+	}
+	
+	/**
+	 * @return sexo
+	 */
+	public SexoEnum getSexo() {
+		return sexo;
+	}
+	
 	/**
 	 * @param cpf
 	 *            String
@@ -105,14 +140,7 @@ public class PessoaFisica extends Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	/**
-	 * @return dataNascimento
-	 */
-	public Date getDataNascimento() {
-		return dataNascimento;
-	}
-
+	
 	/**
 	 * @param dataNascimento
 	 *            Date
@@ -120,59 +148,7 @@ public class PessoaFisica extends Pessoa {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-
-	/**
-	 * @return nomePai
-	 */
-	public String getNomePai() {
-		return nomePai;
-	}
-
-	/**
-	 * @param nomePai
-	 *            String
-	 */
-	public void setNomePai(String nomePai) {
-		this.nomePai = nomePai;
-	}
-
-	/**
-	 * @return nomeMae
-	 */
-	public String getNomeMae() {
-		return nomeMae;
-	}
-
-	/**
-	 * @param nomeMae
-	 *            String
-	 */
-	public void setNomeMae(String nomeMae) {
-		this.nomeMae = nomeMae;
-	}
-
-	/**
-	 * @return sexo
-	 */
-	public SexoEnum getSexo() {
-		return sexo;
-	}
-
-	/**
-	 * @param sexo
-	 *            SexoEnum
-	 */
-	public void setSexo(SexoEnum sexo) {
-		this.sexo = sexo;
-	}
-
-	/**
-	 * @return estadoCivil
-	 */
-	public EstadoCivilEnum getEstadoCivil() {
-		return estadoCivil;
-	}
-
+	
 	/**
 	 * @param estadoCivil
 	 *            EstadoCivilEnum
@@ -180,5 +156,29 @@ public class PessoaFisica extends Pessoa {
 	public void setEstadoCivil(EstadoCivilEnum estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
-
+	
+	/**
+	 * @param nomeMae
+	 *            String
+	 */
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
+	}
+	
+	/**
+	 * @param nomePai
+	 *            String
+	 */
+	public void setNomePai(String nomePai) {
+		this.nomePai = nomePai;
+	}
+	
+	/**
+	 * @param sexo
+	 *            SexoEnum
+	 */
+	public void setSexo(SexoEnum sexo) {
+		this.sexo = sexo;
+	}
+	
 }

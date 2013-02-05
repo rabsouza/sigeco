@@ -21,6 +21,7 @@
 		<class>br.com.battista.sigeco.model.Pessoa</class>
 		<class>br.com.battista.sigeco.model.PessoaFisica</class>
 		<class>br.com.battista.sigeco.model.PessoaJuridica</class>
+		<class>br.com.battista.sigeco.model.Member</class>
 
 		<properties>
 			<!-- Properties for Hibernate -->
@@ -35,7 +36,7 @@
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.use_sql_comments" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			
+
 			<property name="hibernate.transaction.manager_lookup_class"
 				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
 

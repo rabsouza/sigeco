@@ -22,33 +22,33 @@ import br.com.battista.sigeco.model.Member;
 // http://sfwk.org/Documentation/WhatIsThePurposeOfTheModelAnnotation
 @Model
 public class MemberRegistration {
-
-   @Inject
-   private Logger log;
-
-   @Inject
-   private EntityManager em;
-
-   @Inject
-   private Event<Member> memberEventSrc;
-
-   private Member newMember;
-
-   @Produces
-   @Named
-   public Member getNewMember() {
-      return newMember;
-   }
-
-   public void register() throws Exception {
-      log.info("Registering " + newMember.getName());
-      em.persist(newMember);
-      memberEventSrc.fire(newMember);
-      initNewMember();
-   }
-
-   @PostConstruct
-   public void initNewMember() {
-      newMember = new Member();
-   }
+	
+	@Inject
+	private EntityManager em;
+	
+	@Inject
+	private Logger log;
+	
+	@Inject
+	private Event<Member> memberEventSrc;
+	
+	private Member newMember;
+	
+	@Produces
+	@Named
+	public Member getNewMember() {
+		return newMember;
+	}
+	
+	@PostConstruct
+	public void initNewMember() {
+		newMember = new Member();
+	}
+	
+	public void register() throws Exception {
+		log.info("Registering " + newMember.getName());
+		em.persist(newMember);
+		memberEventSrc.fire(newMember);
+		initNewMember();
+	}
 }

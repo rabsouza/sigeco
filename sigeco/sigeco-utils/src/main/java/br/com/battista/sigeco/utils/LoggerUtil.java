@@ -11,25 +11,25 @@ import org.apache.log4j.MDC;
 
 /**
  * Classe respons�vel por criar os logs da aplicação.
- *
+ * 
  * @author Rafa
  * @since 15/03/2012
  * @version 1.0.0
  * @see Logger
- *
+ * 
  */
 public class LoggerUtil extends Logger {
-
+	
 	private static final Map<PackageLog, Appender> appenders = new HashMap<PackageLog, Appender>();
-
+	
 	private static final String CONST_PARSE_NAME_LOG = "#package#";
 	private static Appender defaultAppender;
 	private static Level level;
-
+	
 	private static final Logger LOGGER = Logger.getLogger(LoggerUtil.class);
 	private static final String nameLog = "sigeco_" + CONST_PARSE_NAME_LOG
 			+ ".log";
-
+	
 	static {
 		String fileName = nameLog.replace("_" + CONST_PARSE_NAME_LOG, "");
 		String conversionPattern = Properties.get("logger.partten."
@@ -41,25 +41,33 @@ public class LoggerUtil extends Logger {
 			LOGGER.error("Erro ao tentar criar logger!", e);
 		}
 	}
-
+	
 	/**
-	 *
+	 * Construtor para <em>LoggerUtil</em>
+	 * 
+	 */
+	private LoggerUtil(String name) {
+		super(name);
+	}
+	
+	/**
+	 * 
 	 * @see java.util.Map#clear()
 	 */
 	public static void clear() {
 		appenders.clear();
 	}
-
+	
 	/**
 	 * @return appenders
 	 */
 	public static Map<PackageLog, Appender> getAppenders() {
 		return appenders;
 	}
-
+	
 	/**
 	 * Retorna o log da aplicação por modulo.
-	 *
+	 * 
 	 * @param clazz
 	 *            Class do logger
 	 * @param packageLog
@@ -68,13 +76,13 @@ public class LoggerUtil extends Logger {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static Logger getLogger(Class clazz, PackageLog packageLog) {
-
+		
 		Logger logger = Logger.getLogger(clazz);
 		logger.addAppender(defaultAppender);
-
+		
 		level = Level.toLevel(Properties.get("logger.level"));
 		logger.setLevel(level);
-
+		
 		Appender appender;
 		if (appenders.containsKey(packageLog)) {
 			appender = appenders.get(packageLog);
@@ -92,18 +100,18 @@ public class LoggerUtil extends Logger {
 				return logger;
 			}
 		}
-
+		
 		if (logger.getAppender(appender.getName()) == null) {
 			logger.addAppender(appender);
 		}
-
+		
 		return logger;
-
+		
 	}
-
+	
 	/**
 	 * Add um MDC para o logger.
-	 *
+	 * 
 	 * @param key
 	 *            Chave do MDC
 	 * @param value
@@ -112,23 +120,15 @@ public class LoggerUtil extends Logger {
 	public static void putMDC(String key, Object value) {
 		MDC.put(key, value);
 	}
-
+	
 	/**
 	 * Remove um MDC para o logger.
-	 *
+	 * 
 	 * @param key
 	 *            Chave do MDC
 	 */
 	public static void removeMDC(String key) {
 		MDC.remove(key);
 	}
-
-	/**
-	 * Construtor para <em>LoggerUtil</em>
-	 *
-	 */
-	private LoggerUtil(String name) {
-		super(name);
-	}
-
+	
 }

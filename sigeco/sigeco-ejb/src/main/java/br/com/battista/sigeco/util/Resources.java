@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 
 /**
  * This class uses CDI to alias Java EE resources, such as the persistence context, to CDI beans
- *
+ * 
  * <p>
  * Example injection on a managed bean field:
  * </p>
- *
+ * 
  * <pre>
  * &#064;Inject
  * private EntityManager em;
@@ -21,13 +21,13 @@ import javax.persistence.PersistenceContext;
  */
 @SuppressWarnings("javadoc")
 public class Resources {
-   // use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
-   @Produces
-   @PersistenceContext
-   public EntityManager em;
-
-@Produces
-   public Logger produceLog(InjectionPoint injectionPoint) {
-      return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
-   }
+	// use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
+	@Produces
+	@PersistenceContext
+	public EntityManager em;
+	
+	@Produces
+	public Logger produceLog(InjectionPoint injectionPoint) {
+		return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
+	}
 }

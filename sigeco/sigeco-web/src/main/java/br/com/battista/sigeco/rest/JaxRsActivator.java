@@ -8,11 +8,10 @@ import javax.ws.rs.core.Application;
  * "no XML" approach to activating JAX-RS.
  * 
  * <p>
- * Resources are served relative to the servlet path specified in the {@link ApplicationPath}
- * annotation.
+ * Resources are served relative to the servlet path specified in the {@link ApplicationPath} annotation.
  * </p>
  */
 @ApplicationPath("/rest")
 public class JaxRsActivator extends Application {
-   /* class body intentionally left blank */
+	/* class body intentionally left blank */
 }

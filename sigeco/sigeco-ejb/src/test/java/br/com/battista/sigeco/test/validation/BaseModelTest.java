@@ -7,15 +7,14 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-
 @SuppressWarnings("javadoc")
 public class BaseModelTest {
-
+	
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("sigecoPU");
-
+	
 	@Test
-	public void teste(){
+	public void teste() {
 		Assert.assertNotNull(emf.createEntityManager());
 	}
-
+	
 }
